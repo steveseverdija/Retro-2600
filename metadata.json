@@ -1,0 +1,8 @@
+{
+  "name": "Retro 2600",
+  "description": "Remix of Retro by Gemini and Steve Severdija ",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
