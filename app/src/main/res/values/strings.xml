@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Game Retro</string>
+    <string name="app_id">555296521278</string>
+    <string name="empty"></string>
+    <string name="achievementPixelPyth">CgkIvviB0pQQEAIQAA</string>
+    <string name="achievementBreakoutC">CgkIvviB0pQQEAIQAg</string>
+    <string name="achievementSpaceDefe">CgkIvviB0pQQEAIQAw</string>
+    <string name="achievementPongTenni">CgkIvviB0pQQEAIQBA</string>
+    <string name="achievementPacMaze">CgkIvviB0pQQEAIQBQ</string>
+    <string name="achievementTowerBuil">CgkIvviB0pQQEAIQBg</string>
+    <string name="achievementLunarLander">CgkIvviB0pQQEAIQBw</string>
+    <string name="achievementRacingCar">CgkIvviB0pQQEAIQCA</string>
+    <string name="achievementPlatformer">CgkIvviB0pQQEAIQCQ</string>
 </resources>

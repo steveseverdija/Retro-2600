@@ -8,6 +8,8 @@ import android.media.AudioFormat
 import android.media.AudioManager
 import android.media.AudioTrack
 import android.os.Bundle
+import com.google.android.gms.games.PlayGames
+import com.google.android.gms.games.PlayGamesSdk
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -186,6 +188,7 @@ enum class RetroColorTheme(val displayName: String, val screenColor: Color, val 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    PlayGamesSdk.initialize(this)
     requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
     enableEdgeToEdge()
     setContent {
@@ -1808,6 +1811,25 @@ fun GameRetroConsole(modifier: Modifier = Modifier) {
                       if (showInfoOnScreen) {
                         // Launch current game
                         showInfoOnScreen = false
+                        try {
+                          if (context is android.app.Activity) {
+                            val client = PlayGames.getAchievementsClient(context)
+                            when (currentGame) {
+                              RetroGame.PIXEL_PYTHON -> client.unlock(context.getString(R.string.achievementPixelPyth))
+                              RetroGame.BREAKOUT -> client.unlock(context.getString(R.string.achievementBreakoutC))
+                              RetroGame.SPACE_DEFENDER -> client.unlock(context.getString(R.string.achievementSpaceDefe))
+                              RetroGame.PONG_TENNIS -> client.unlock(context.getString(R.string.achievementPongTenni))
+                              RetroGame.PAC_MAZE -> client.unlock(context.getString(R.string.achievementPacMaze))
+                              RetroGame.TOWER_BUILDER -> client.unlock(context.getString(R.string.achievementTowerBuil))
+                              RetroGame.LUNAR_LANDER -> client.unlock(context.getString(R.string.achievementLunarLander))
+                              RetroGame.RACING_CAR -> client.unlock(context.getString(R.string.achievementRacingCar))
+                              RetroGame.PLATFORMER -> client.unlock(context.getString(R.string.achievementPlatformer))
+                              else -> {}
+                            }
+                          }
+                        } catch (e: Exception) {
+                          e.printStackTrace()
+                        }
                         when (currentGame) {
                           RetroGame.PIXEL_PYTHON -> resetPixelPython()
                           RetroGame.BREAKOUT -> resetBreakout()
